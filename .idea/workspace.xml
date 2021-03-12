@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d70b0218-2d5a-4e27-807d-13e0593ada67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Codes/BabyNetwork/BabyNeuralNetwork.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Codes/BabyNetwork/planar_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DebugTorch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DebugTorch.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codes/BabyNetwork/ConvNetStepbyStep.py" beforeDir="false" afterPath="$PROJECT_DIR$/Codes/BabyNetwork/ConvNetStepbyStep.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codes/BabyNetwork/ConvNetStepbyStepUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Codes/BabyNetwork/ConvNetStepbyStepUtils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codes/BabyNetwork/L_layer_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/Codes/BabyNetwork/L_layer_classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codes/BabyNetwork/L_layer_classifier_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Codes/BabyNetwork/L_layer_classifier_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codes/LearnClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/Codes/LearnClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codes/MicroGrad.py" beforeDir="false" afterPath="$PROJECT_DIR$/Codes/MicroGrad.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +49,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Codes/GradCam.py" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -61,7 +63,7 @@
       <recent name="C:\Users\ranab\PycharmProjects\DebugTorch\Codes\BabyNetwork" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.BabyNeuralNetwork">
+  <component name="RunManager" selected="Python.GradCam">
     <configuration name="BabyNeuralNetwork" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DebugTorch" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -76,6 +78,138 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="C:\Users\ranab\PycharmProjects\DebugTorch\Codes\BabyNetwork\BabyNeuralNetwork.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ConvNetStepbyStep" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DebugTorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Codes/BabyNetwork" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Codes/BabyNetwork/ConvNetStepbyStep.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GradCam" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="DebugTorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\ranab\Miniconda3\envs\py36\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Codes" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Codes/GradCam.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="L_layer_classifier" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DebugTorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Codes/BabyNetwork" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Codes/BabyNetwork/L_layer_classifier.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="L_layer_classifier_utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DebugTorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Codes/BabyNetwork" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Codes/BabyNetwork/L_layer_classifier_utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LearnClass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DebugTorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Codes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Codes/LearnClass.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MicroGrad" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="DebugTorch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\ranab\Miniconda3\envs\py36\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Codes" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Codes/MicroGrad.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,7 +243,21 @@
     <list>
       <item itemvalue="Python.planar_utils" />
       <item itemvalue="Python.BabyNeuralNetwork" />
+      <item itemvalue="Python.MicroGrad" />
+      <item itemvalue="Python.GradCam" />
+      <item itemvalue="Python.LearnClass" />
+      <item itemvalue="Python.L_layer_classifier" />
+      <item itemvalue="Python.L_layer_classifier_utils" />
+      <item itemvalue="Python.ConvNetStepbyStep" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.ConvNetStepbyStep" />
+        <item itemvalue="Python.L_layer_classifier" />
+        <item itemvalue="Python.L_layer_classifier_utils" />
+        <item itemvalue="Python.LearnClass" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -135,7 +283,17 @@
       <updated>1584472018965</updated>
       <workItem from="1584472020325" duration="3001000" />
       <workItem from="1584494185594" duration="401000" />
-      <workItem from="1585769495357" duration="11042000" />
+      <workItem from="1585769495357" duration="11341000" />
+      <workItem from="1586378240374" duration="600000" />
+      <workItem from="1586828086791" duration="193000" />
+      <workItem from="1586835562544" duration="5736000" />
+      <workItem from="1587051922762" duration="390000" />
+      <workItem from="1587359811098" duration="2581000" />
+      <workItem from="1588025737862" duration="9533000" />
+      <workItem from="1588130376865" duration="3480000" />
+      <workItem from="1588744217029" duration="98000" />
+      <workItem from="1588905817366" duration="13336000" />
+      <workItem from="1600974341101" duration="14000" />
     </task>
     <servers />
   </component>
@@ -147,65 +305,28 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="2472" y="262" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585780916826">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2334" y="196" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1584472180530" />
-    <state x="2472" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585780916826" />
-    <state x="331" y="157" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1585769981820" />
-    <state x="2825" y="317" key="CommitChangelistDialog2" timestamp="1585781123745">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2825" y="317" key="CommitChangelistDialog2/0.0.1536.864/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585781123745" />
-    <state x="2907" y="395" key="FileChooserDialogImpl" timestamp="1585783122273">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2660" y="296" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1584472178735" />
-    <state x="2907" y="395" key="FileChooserDialogImpl/0.0.1536.864/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585783122273" />
-    <state x="592" y="237" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1585769978690" />
-    <state width="2517" height="405" key="GridCell.Tab.0.bottom" timestamp="1585783034099">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1584473719485" />
-    <state width="2517" height="405" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585783034099" />
-    <state width="2517" height="405" key="GridCell.Tab.0.center" timestamp="1585783034099">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1584473719485" />
-    <state width="2517" height="405" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585783034099" />
-    <state width="2517" height="405" key="GridCell.Tab.0.left" timestamp="1585783034099">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1584473719485" />
-    <state width="2517" height="405" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585783034099" />
-    <state width="2517" height="405" key="GridCell.Tab.0.right" timestamp="1585783034099">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1584473719485" />
-    <state width="2517" height="405" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585783034099" />
-    <state x="2382" y="127" key="SettingsEditor" timestamp="1585780912675">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2382" y="127" key="SettingsEditor/0.0.1536.864/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585780912675" />
-    <state x="277" y="76" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1585770004990" />
-    <state x="465" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1584494246606">
+    <state x="465" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1600974342206">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="465" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1584494246606" />
-    <state x="2543" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1584474944392">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2543" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1536.864/1920.0.1920.1080@1920.0.1920.1080" timestamp="1584474944392" />
+    <state x="465" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1600974342206" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DebugTorch$LearnClass.coverage" NAME="LearnClass Coverage Results" MODIFIED="1587362545274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Codes" />
+    <SUITE FILE_PATH="coverage/DebugTorch$ConvNetStepbyStep.coverage" NAME="ConvNetStepbyStep Coverage Results" MODIFIED="1588131789222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Codes/BabyNetwork" />
     <SUITE FILE_PATH="coverage/DebugTorch$Softmax_LogSoftmax.coverage" NAME="Softmax&amp;LogSoftmax Coverage Results" MODIFIED="1584473719478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Codes/Loss" />
     <SUITE FILE_PATH="coverage/DebugTorch$BabyNeuralNetwork.coverage" NAME="BabyNeuralNetwork Coverage Results" MODIFIED="1585783034088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Codes" />
+    <SUITE FILE_PATH="coverage/DebugTorch$L_layer_classifier_utils.coverage" NAME="L_layer_classifier_utils Coverage Results" MODIFIED="1588027150451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Codes/BabyNetwork" />
+    <SUITE FILE_PATH="coverage/DebugTorch$L_layer_classifier.coverage" NAME="L_layer_classifier Coverage Results" MODIFIED="1588048241877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Codes/BabyNetwork" />
+    <SUITE FILE_PATH="coverage/DebugTorch$GradCam.coverage" NAME="GradCam Coverage Results" MODIFIED="1588920576544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Codes" />
+    <SUITE FILE_PATH="coverage/DebugTorch$MicroGrad.coverage" NAME="MicroGrad Coverage Results" MODIFIED="1586838712333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Codes" />
   </component>
 </project>

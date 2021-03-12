@@ -12,7 +12,6 @@ if __name__ != '__main__':
 
 import datetime
 if __name__ == '__main__':
-
     class User:
         def __init__(self, full_name, birthday):     # initialization or in some other language: constructor
             #   docstring
