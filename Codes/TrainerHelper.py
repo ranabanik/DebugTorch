@@ -11,6 +11,7 @@ from torch.autograd import Variable
 from Utilities import get_sub_list, Subset, Seg_three_label, dice_loss_three
 import matplotlib.pyplot as plt
 import pickle
+import nibabel as nib
 
 use_cuda = torch.cuda.is_available()
 device = torch.device("cuda:0" if use_cuda else "cpu")
@@ -357,18 +358,37 @@ class Trainer_v2(object):
             with open(self.FILEPATH_LOG, 'wb') as pfile:
                 pickle.dump(log, pfile)
 
-    # def loadtest(self):
-    #     for epoch in tqdm.trange(self.epoch, self.max_epoch, desc='Test', ncols=100):
-    #         self.epoch = epoch
-    #         train_root_dir = os.path.join(self.train_root_dir, 'models')
-    #         # model_pth = '%s/model_epoch_%04d.pth' % (train_root_dir, epoch)
-    #         if self.cuda:
-    #             self.model.load_state_dict(torch.load(self.model_pth))
-    #         else:
-    #             # self.model.load_state_dict(torch.load(model_pth))
-    #             self.model.load_state_dict(torch.load(self.model_pth, map_location=lambda storage, location: storage))
-    #         if epoch % 1 == 0:
-    #             self.validate_liver()
+    def loadtest(self, test_loader, state=0):
+        "state: 0 for best_state, state: 1 or None for latest_state"
+        model_pth = glob(os.path.join(self.subDir, '*.pth'))[0]  # '%s/model_epoch_%04d.pth' % (train_root_dir, epoch)
+        if state == 0:
+            if self.cuda:
+                checkpoint = torch.load(model_pth)
+                self.model.load_state_dict(checkpoint['best_model_state']['model_state_dict'])
+            else:
+                checkpoint = torch.load(model_pth, map_location=lambda storage, location: storage)
+                self.model.load_state_dict(checkpoint['best_model_state']['model_state_dict'])
+        else:
+            if self.cuda:
+                checkpoint = torch.load(model_pth)
+                self.model.load_state_dict(checkpoint['checkpoint_latest']['model_state_dict'])
+            else:
+                checkpoint = torch.load(model_pth, map_location=lambda storage, location: storage)
+                self.model.load_state_dict(checkpoint['checkpoint_latest']['model_state_dict'])
+        outDir = os.path.join(self.subDir, 'out')
+        if not os.path.exists(outDir):
+            os.makedirs(outDir)
+        for batch_idx, (data, target, sub_name) in tqdm.tqdm(
+                enumerate(test_loader), total=len(test_loader),
+                desc='Test batch=%d' % self.epoch, ncols=100, leave=False):
+            if self.cuda:
+                data, target = data.cuda(), target.cuda()
+            data, target = Variable(data), Variable(target)
+            pred = self.model(data)
+            lbl_pred = pred.data.max(1)[1].cpu().numpy()[:, :, :].astype('uint8')
+            out_nii_file = os.path.join(outDir, '{}_{}.nii.gz'.format(sub_name, batch_idx))
+            seg_img = nib.Nifti1Image(lbl_pred[0], affine=np.eye(4))
+            nib.save(seg_img, out_nii_file)
 
 class UNet3D(nn.Module): #from SLANT
     def __init__(self, in_channel, n_classes):
