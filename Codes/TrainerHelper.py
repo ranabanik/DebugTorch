@@ -210,9 +210,8 @@ class Trainer_v2(object):
     This code was inspired from:
     https://github.com/AruniRC/resnet-face-pytorch/blob/master/train.py"""
     # fixme: plot/spit results
-    # fixme: loading/test
     # --------------------------------------------------------------------------
-    def __init__(self, cuda, model, optimizer, train_loader, valid_loader,
+    def __init__(self, cuda, model, optimizer, train_loader, valid_loader, test_loader,
                  trainer_root_dir, max_epoch, batch_size,
                  model_save_criteria=0,
                  experiment_name=None,
@@ -223,6 +222,7 @@ class Trainer_v2(object):
         self.optim = optimizer
         self.train_loader = train_loader
         self.valid_loader = valid_loader
+        self.test_loader = test_loader
         self.trainer_root_dir = trainer_root_dir
         self.max_epoch = max_epoch
         self.batch_size = batch_size
@@ -231,15 +231,19 @@ class Trainer_v2(object):
         self.lmk_num = lmk_num
         self.experiment_name = str(experiment_name)
         self.TIME_STAMP = time.strftime('%Y-%m-%d-%H-%M-%S')
-        if self.experiment_name is not None:
-            self.subDir = os.path.join(self.trainer_root_dir, self.experiment_name +'_{}'.format(self.TIME_STAMP))
-        else:
-            self.subDir = os.path.join(self.trainer_root_dir, 'default_{}'.format(self.TIME_STAMP))
-        os.makedirs(self.subDir)
-
-        self.model_pth = os.path.join(self.subDir, self.model.__class__.__name__+'.pth')
-        self.loss_log = os.path.join(self.subDir, 'trainvalid_loss.txt')
-        self.FILEPATH_LOG = os.path.join(self.subDir, 'loss_acc.pickle')
+        if self.test_loader is None:
+            if self.experiment_name is not None:
+                self.subdir = os.path.join(self.trainer_root_dir, self.experiment_name + '_{}'.format(self.TIME_STAMP))
+            else:
+                self.subdir = os.path.join(self.trainer_root_dir, 'default_{}'.format(self.TIME_STAMP))
+            os.makedirs(self.subdir)
+        # else:
+        #     self.subdir = subdir
+        if self.test_loader is None:
+            print("Should")
+            self.model_pth = os.path.join(self.subdir, self.model.__class__.__name__ + '.pth')
+            self.loss_log = os.path.join(self.subdir, 'trainvalid_loss.txt')
+            self.FILEPATH_LOG = os.path.join(self.subdir, 'loss_acc.pickle')
         self.epoch = 0  # epoch to start train / start_epoch
         self.iteration = 0
         self.best_mean_iu = 0
@@ -248,6 +252,7 @@ class Trainer_v2(object):
         self.valid_losses = []
         self.valid_dices = []
         # self.lrlist = []
+        self.checkpoint = {}
         if self.lr_decay_epoch is not None:
             """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
             self.scheduler = torch.optim.lr_scheduler.StepLR(
@@ -291,7 +296,7 @@ class Trainer_v2(object):
         # self.lrlist.append(self.optim.param_groups[0]['lr'])
         fv.close()
 
-    def validate(self, checkpoint): #, model_save_criteria):
+    def validate(self): #, model_save_criteria):
         self.model.eval()  # train
         running_loss = 0
         running_dice = 0
@@ -326,19 +331,19 @@ class Trainer_v2(object):
                 'optimizer_state_dict': self.optim.state_dict(),
                 'model_save_criteria': self.model_save_criteria
             }
-            checkpoint['best_model_state'] = checkpoint_best
-            torch.save(checkpoint, self.model_pth)
+            self.checkpoint['best_model_state'] = checkpoint_best
+            torch.save(self.checkpoint, self.model_pth)
         fv.close()
 
     def train_epoch(self):
         "codes to start training epochs which includes batch epochs of train and validation"
         for epoch in tqdm.trange(self.epoch, self.max_epoch, desc='Train Epoch', ncols=100):
             self.epoch = epoch      # increments the epoch of Trainer
-            checkpoint = {} # fixme: here checkpoint!!!
+            # checkpoint = {} # fixme: here checkpoint!!!
             # model_save_criteria = self.model_save_criteria
             self.train()
             if epoch % 1 == 0:
-                self.validate(checkpoint) #, self.model_save_criteria)
+                self.validate() #checkpoint) #, self.model_save_criteria)
             checkpoint_latest = {
                 'epoch': self.epoch,
                 'arch': self.model.__class__.__name__,
@@ -346,8 +351,8 @@ class Trainer_v2(object):
                 'optimizer_state_dict': self.optim.state_dict(),
                 'model_save_criteria': self.model_save_criteria
             }
-            checkpoint['checkpoint_latest'] = checkpoint_latest
-            torch.save(checkpoint, self.model_pth)
+            self.checkpoint['checkpoint_latest'] = checkpoint_latest
+            torch.save(self.checkpoint, self.model_pth)
             print("\n Updating log...")
             log = {
                 'loss_train': self.train_losses,
@@ -358,9 +363,10 @@ class Trainer_v2(object):
             with open(self.FILEPATH_LOG, 'wb') as pfile:
                 pickle.dump(log, pfile)
 
-    def loadtest(self, test_loader, state=0):
+    def loadtest(self, test_loader, subdir, state=0):
         "state: 0 for best_state, state: 1 or None for latest_state"
-        model_pth = glob(os.path.join(self.subDir, '*.pth'))[0]  # '%s/model_epoch_%04d.pth' % (train_root_dir, epoch)
+        print(subdir, "+++")
+        model_pth = glob(os.path.join(subdir, '*.pth'))[0]  # '%s/model_epoch_%04d.pth' % (train_root_dir, epoch)
         if state == 0:
             if self.cuda:
                 checkpoint = torch.load(model_pth)
@@ -375,7 +381,7 @@ class Trainer_v2(object):
             else:
                 checkpoint = torch.load(model_pth, map_location=lambda storage, location: storage)
                 self.model.load_state_dict(checkpoint['checkpoint_latest']['model_state_dict'])
-        outDir = os.path.join(self.subDir, 'out')
+        outDir = os.path.join(subdir, 'out')
         if not os.path.exists(outDir):
             os.makedirs(outDir)
         for batch_idx, (data, target, sub_name) in tqdm.tqdm(
@@ -462,18 +468,21 @@ if __name__ == '__main__':
     # Initialize optimizer
     opt = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
     out = r'/media/banikr2/DATA/banikr_D_drive/model/OutTrainer'
+
     A = Trainer_v2(cuda=use_cuda,
                    model=model,
                    optimizer=opt,
                    train_loader=train_loader,
                    valid_loader=valid_loader,
+                   test_loader=None,
                    trainer_root_dir=r'/media/banikr2/DATA/banikr_D_drive/model/OutTrainer',
-                   max_epoch=5,
+                   max_epoch=50,
                    batch_size=2,
-                   experiment_name='Checklog_lr_decay_None',
-                   lr_decay_epoch=None)
+                   experiment_name='Operation_all_clear',
+                   lr_decay_epoch=20)
     A.train_epoch()
-
+    # modelDir = r'/media/banikr2/DATA/banikr_D_drive/model/OutTrainer/Checklog_lr_decay_None_2021-07-25-00-50-38'
+    # A.loadtest(valid_loader, modelDir, 0)
 if __name__ != '__main__':
     model_pth = r'/media/banikr2/DATA/banikr_D_drive/model/OutTrainer/models'
     model_pth = glob(os.path.join(model_pth, '*.pt'))[0]
